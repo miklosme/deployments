@@ -39,6 +39,9 @@ inputs:
   env_url:
     required: false
     description: The environment URL. (For `finish` only)
+  target_url:
+    required: false
+    description: The target URL. (For `finish` only)
   status:
     required: false
     description: The deployment status. (For `finish` only)
