@@ -75,6 +75,7 @@ export async function run(step: Step, context: DeploymentContext) {
             ...context.coreArgs,
             deploymentID: getInput("deployment_id", { required: true }),
             envURL: getInput("env_url", { required: false }),
+            targetURL: getInput("target_url", { required: false }),
             status: getInput("status", { required: true }).toLowerCase(),
           };
           if (args.logArgs) {
@@ -105,6 +106,7 @@ export async function run(step: Step, context: DeploymentContext) {
 
             // only set environment_url if deployment worked
             environment_url: newStatus === "success" ? args.envURL : "",
+            target_url: newStatus === "success" ? args.targetURL : "",
             // set log_url to action by default
             log_url: args.logsURL,
           });
